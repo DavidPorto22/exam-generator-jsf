@@ -8,11 +8,13 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.devdojo.examgenerator.util.TokenUtil;
 
+@WebFilter(urlPatterns = {"/*"}, description = "Session checker filter")
 public class LoginFilter implements Filter, Serializable{
 	TokenUtil tokenUtil = new TokenUtil();
 
@@ -29,8 +31,8 @@ public class LoginFilter implements Filter, Serializable{
 		
 	}
 	
-	private boolean isTokenValid(HttpServletRequest requeset) {
-		return tokenUtil.isExpirationTimeFromCookieValid(requeset) && !tokenUtil.getTokenFromCookies(requeset).isEmpty();
+	private boolean isTokenValid(HttpServletRequest request) {
+		return tokenUtil.isExpirationTimeFromCookieValid(request) && !tokenUtil.getTokenFromCookies(request).isEmpty();
 	}
 
 }

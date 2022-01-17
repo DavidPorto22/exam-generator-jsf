@@ -13,10 +13,10 @@ public class IndexBean implements Serializable{
 	private String message = "Wooooooooorking";
 	private final LoginDAO loginDAO = new LoginDAO();
 	
-	public void login() {
-		Token token = loginDAO.loginReturningToken("william", "devdojo");
-		System.out.println(token);
-	}
+//	public void login() {
+//		Token token = loginDAO.loginReturningToken("william", "devdojo");
+//		System.out.println(token);
+//	}
 	
 	public String getMessage() {
 		return message;
