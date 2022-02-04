@@ -27,8 +27,8 @@ public class LoginFilter implements Filter, Serializable{
 			res.sendRedirect(req.getContextPath() + "/login.xhtml");
 			return;
 		}
-		chain.doFilter(req, res);
 		
+		chain.doFilter(req, res);
 	}
 	
 	private boolean isTokenValid(HttpServletRequest request) {

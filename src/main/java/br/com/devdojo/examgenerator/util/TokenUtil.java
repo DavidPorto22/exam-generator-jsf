@@ -41,7 +41,7 @@ public class TokenUtil implements Serializable {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS")
 				.withZone(ZoneId.of("UTC"));
 		LocalDateTime tokenExpirationTime = LocalDateTime.parse(expirationTime, formatter);
-		return LocalDateTime.now().isBefore(tokenExpirationTime);
+		return LocalDateTime.now(ZoneId.of("UTC")).isBefore(tokenExpirationTime);
 	}
 }
 
